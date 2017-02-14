@@ -190,13 +190,16 @@ module.exports = function (grunt) {
 
         fileExists: {
             scripts: Object.keys(lessFiles)
-        }
+        },
 
+        // aerobatic.comでCDN配信するためには`index.html`が必須なため、空ファイルとして作成する
+        touch: ['dist/index.html'],
     });
 
     // Default task(s).
-    grunt.registerTask('default', ['clean', 'file-creator', 'imagemin', 'less', 'replace', 'cssmin', 'postcss']);
+	grunt.registerTask('default', ['clean', 'file-creator', 'imagemin', 'less', 'replace', 'cssmin', 'postcss']);
     grunt.registerTask('test', ['default', 'fileExists']);
 
-
+	// Build for aerobatic.com
+	grunt.registerTask('build-aero', ['default', 'touch']);
 };
