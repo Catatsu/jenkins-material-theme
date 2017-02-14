@@ -8,3 +8,5 @@ dist/
 hpi/material-theme/
 hpi/material-theme.zip
 .tmp/
+/aero-deploy.tar.gz
+/aero-debug.log
