@@ -1,5 +1,16 @@
 language: node_js
+env:
+  global:
+  - secure: AEROBATIC_API_KEY
+  matrix:
+  - secure: SeefybxksLJYsdwNh1YFPcaLyCTSfdyQK864KwbLwifeBMV9oXefgN0SvuZ8Y+7zcghUEg2KLaqnNiQH43o6i7GJJuv+bukJgzOvY0I2q0f5fl9fKhV4dVRM8F5xLsTsKSEo5IkH6NMFh6BBp/1eC7GmcR8nPSXZ9mGD3KRNiGKxouzpgWrwU5qNlbUnYHUg7wnKDqv1uRfix7rn7ZeaeQ+pQvB0HHMTQ+V4H8zTDf1pTI22RbEktlHf/ay8S7TRzQ2oz9Qr1mp0GPBkApZ13h/eHpnaUq1dRL4MJGD5GH+Pe2SUpC4RGrm6iKNwdaGixeiAi8OC2iee2Ie6uIJdvbDFNK/W+Z91PuJkVMUeQBrLDJaGvp0WJnp3iTF3uL+F7KwitLcQFBk28/fq/ZT5G23vJjSSRa2uReQLJaLMlwZMB9ZGHduNyljYQU0C/IlI0IS1gzBDnfuUMVIACS+XskQdVhomCj6s4GN5vG3qPC/USMYHxBjg0dGgVFrgtajwcSW3xmgnt20JxHeb6kvY+NWjiHSXzJ6eJRofirxRZiNk1waRo+8qMc2k/t3xPOsRiqrQyQhFfYM5dMW4PnHGkd472+H6MXL7e+3mYfPJEVmibUVjGJV0LrOD5654qGrXIyx9X/wmfeKV+sJleTrXNn7PNFO56AMnkQ+336AlE8s=
 node_js:
-  - "6.4"
+- node
 before_script:
-  - npm install grunt-cli -g
+- npm install grunt-cli aerobatic-cli -g
+install:
+- npm install
+script:
+- grunt build-aero
+after_success:
+- aero deploy
